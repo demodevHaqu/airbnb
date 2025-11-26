@@ -19,7 +19,7 @@ export default function Footer({ lang }: FooterProps) {
           <span>010-XXXX-XXXX</span>
         </div>
         <p className="mt-4 text-gray-500 text-sm">
-          Made with ❤️ for our guests
+          Made with ❤️ for our guests hello
         </p>
       </div>
     </footer>
