@@ -1,12 +1,13 @@
-import { Language, getTranslation } from '@/data/translations';
+import { Language, languages, getTranslation } from '@/data/translations';
 import { restaurants } from '@/data/places';
 
 export default async function FoodPage({
   params,
 }: {
-  params: Promise<{ lang: Language }>;
+  params: Promise<{ lang: string }>;
 }) {
-  const { lang } = await params;
+  const { lang: langParam } = await params;
+  const lang = (languages.some(l => l.code === langParam) ? langParam : 'en') as Language;
   const t = getTranslation(lang);
   const isKo = lang === 'ko';
 

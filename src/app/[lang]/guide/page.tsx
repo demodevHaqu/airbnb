@@ -1,11 +1,12 @@
-import { Language, getTranslation } from '@/data/translations';
+import { Language, languages, getTranslation } from '@/data/translations';
 
 export default async function GuidePage({
   params,
 }: {
-  params: Promise<{ lang: Language }>;
+  params: Promise<{ lang: string }>;
 }) {
-  const { lang } = await params;
+  const { lang: langParam } = await params;
+  const lang = (languages.some(l => l.code === langParam) ? langParam : 'en') as Language;
   const t = getTranslation(lang);
   const g = t.guide;
 

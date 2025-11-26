@@ -13,9 +13,10 @@ export default async function LangLayout({
   params,
 }: {
   children: React.ReactNode;
-  params: Promise<{ lang: Language }>;
+  params: Promise<{ lang: string }>;
 }) {
-  const { lang } = await params;
+  const { lang: langParam } = await params;
+  const lang = (languages.some(l => l.code === langParam) ? langParam : 'en') as Language;
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
